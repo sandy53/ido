@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>I do - Interface Document</title>
+<!-- SimDash : Admin Kit -->
+
+<!-- ================= Favicon ================== -->
+<!-- Standard -->
+<link rel="shortcut icon" href="./assets/images/favicon.ico">
+<!-- Retina iPad Touch Icon-->
+<link rel="apple-touch-icon" sizes="144x144"
+	href="http://placehold.it/144.png/000/fff">
+<!-- Retina iPhone Touch Icon-->
+<link rel="apple-touch-icon" sizes="114x114"
+	href="http://placehold.it/114.png/000/fff">
+<!-- Standard iPad Touch Icon-->
+<link rel="apple-touch-icon" sizes="72x72"
+	href="http://placehold.it/72.png/000/fff">
+<!-- Standard iPhone Touch Icon-->
+<link rel="apple-touch-icon" sizes="57x57"
+	href="http://placehold.it/57.png/000/fff">
+<!-- Styles -->
+<link href="assets/css/lib/font-awesome.min.css" rel="stylesheet">
+<link href="assets/css/lib/themify-icons.css" rel="stylesheet">
+<link href="assets/css/lib/owl.theme.default.min.css" rel="stylesheet" />
+<link href="assets/css/lib/sidebar.css" rel="stylesheet">
+<link href="assets/css/lib/bootstrap.min.css" rel="stylesheet">
+<link href="assets/css/lib/toastr/toastr.min.css" rel="stylesheet">
+<link href="assets/css/lib/simdahs.css" rel="stylesheet">
+<link href="assets/css/style.css" rel="stylesheet">
+
+<style type="text/css">
+
+.card {
+	margin: 10px 0px 10px 0px;
+}
+.search-form {
+	position: absolute;
+	width: 700px;
+	left: 50%;
+	top: 7px;
+	margin-left: -350px; /* 除去自身的宽度，就是居中位置 */
+}
+
+#input-search {
+	background: none;
+	border-color: #fff;
+	color: #fff;
+	border-left: none;
+}
+
+#input-search:focus {
+	outline: none;
+	border-color: #fff;
+	border-left: none;
+}
+
+#req-authorization:focus {
+	border-color: #e7e7e7;
+}
+
+.search-form .btn {
+	border-top-color: #fff;
+	border-right-color: #fff;
+	border-bottom-color: #fff;
+}
+
+#input-search::-webkit-input-placeholder, api-path::-webkit-input-placeholder
+	{
+	/* WebKit browsers */
+	color: #fff;
+}
+
+#input-search:-moz-placeholder, textarea:-moz-placeholder {
+	/* Mozilla Firefox 4 to 18 */
+	color: #fff;
+}
+
+#input-search::-moz-placeholder, textarea::-moz-placeholder {
+	/* Mozilla Firefox 19+ */
+	color: #fff;
+}
+
+#input-search:-ms-input-placeholder, textarea:-ms-input-placeholder {
+	/* Internet Explorer 10+ */
+	color: #fff;
+}
+
+.sidebar .nano-content {
+	margin-bottom: 30px;
+}
+
+.sidebar .nano-content>ul {
+	width: 350px;
+}
+
+.nano-content li {
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+
+#service-content .active {
+	border: 1px solid #f96332;
+}
+
+#service-content .card {
+	min-height: 150px;
+}
+
+#service-content .card:hover {
+	box-shadow: 5px 5px 10px #d1d1d1;
+}
+
+#service-content .card .api-count {
+	margin: 20px auto;
+	width: 50px;
+	height: 50px;
+}
+.api-field {
+	color: #f96332;
+}
+
+#sideLogo  a{
+	font-size: 30px;
+	color: #fff;
+}
+
+#api-method {
+	padding: 3px;
+	padding-left: 10px;
+	padding-right: 10px;
+	background:  #f96332;
+	color: #fff;
+}
+
+
+.table > tbody > tr > td, .table > tbody > tr > th, .table > tfoot > tr > td, .table > tfoot > tr > th, .table > thead > tr > td, .table > thead > tr > th {
+    line-height: 12px;
+    vertical-align: top;
+}
+
+</style>
+</head>
+
+<body>
+	<div
+		class="sidebar sidebar-hide-to-small sidebar-shrink sidebar-gestures">
+		<div class="nano">
+			<div class="nano-content">
+				<ul id="api-context">
+					<li class="label">Main</li>
+					<li class="active" id="dashboard"><a
+						href="javascript:void(0);"><i class="ti-home"></i> Dashboard </a></li>
+					<li class="label api-label"><i class="ti-view-grid"></i> <span id="service-name"></span></li>
+					<!--  请求路径  -->
+				</ul>
+			</div>
+		</div>
+	</div>
+	<!-- /# sidebar -->
+
+	<div class="header">
+		<div class="pull-left">
+			<div class="logo" id="sideLogo">
+				<a href="javascript: location.reload();"> 
+					<!-- <img class="full-logo" src="assets/images/logo-big.png" alt="SimDahs"> 
+					<img class="small-logo" src="assets/images/logo-small.png" alt="SimDahs"> -->
+					<font>i do</font>
+				</a>
+			</div>
+			<div class="hamburger sidebar-toggle">
+				<span class="ti-menu">
+					<!-- 打开关闭左菜单  -->
+				</span>
+			</div>
+		</div>
+
+		<!-- 搜索框 -->
+		<div class=" search-form basic-form">
+			<div class="form-group">
+				<div class="input-group input-group-rounded">
+					<input type="text" placeholder="搜点啥 ... .. ." name="Search"
+						class="form-control" id="input-search" value=""> <span
+						class="input-group-btn"><button
+							class="btn btn-primary btn-group-right" id="j-search">
+							<i class="ti-search"></i>
+						</button></span>
+				</div>
+			</div>
+		</div>
+		<!-- 搜索框  end-->
+
+		<div class="pull-right p-r-15">
+			<ul>
+				<li class="header-icon dib"><i class="ti-bell"></i></li>
+				<li class="header-icon dib"><i class="ti-email"></i></li>
+				<li class="header-icon dib chat-sidebar-icon"><i
+					class="ti-comment"></i></li>
+				<li class="header-icon dib"><img class="avatar-img"
+					src="assets/images/avatar/1.jpg" alt="" /> <span
+					class="user-avatar"> I do <i class="ti-angle-down f-s-10"></i></span>
+					<div class="drop-down dropdown-profile">
+						<div class="dropdown-content-heading">
+							<span class="text-left">Upgrade Now</span>
+							<p class="trial-day">30 Days Trail</p>
+						</div>
+						<div class="dropdown-content-body">
+							<ul>
+								<li><a href="#"><i class="ti-user"></i> <span>Profile</span></a></li>
+							</ul>
+						</div>
+					</div></li>
+			</ul>
+		</div>
+	</div>
+
+
+	<div class="content-wrap">
+		<div class="main">
+			<div class="container-fluid">
+				<!-- 面板 -->
+				<div class="main-content" id="service-content">
+					<div class="row"></div>
+				</div>
+				<!-- 面板 end -->
+
+				<!-- 接口详情  -->
+				<div class="main-content" id="api-content" style="display: none;">
+					<div class="row">
+						<div class="col-lg-12">
+							<div class="card alert">
+								<div class="card-header">
+									<h4 id="api-name"></h4><span id="api-method"> GET | POST </span> <span class="ti-angle-double-right" id="api-path"></span> 
+								</div>
+								<div class="api-info">
+									<div class="form-group">
+										<p class="text-muted m-b-15 f-s-12"></p>
+										<div class="input-group input-group-flat">
+											<span class="input-group-btn"> <button id="api-method1" class="btn btn-primary" type="submit">Authorization</button></span> 
+											<input type="text"  class="form-control" id="req-authorization" placeholder="token" > 
+											<span class="input-group-btn"><button class="btn btn-primary input-group-close-icon" id="j-mock">Go</button></span>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<!-- /# column -->
+
+						<div class="col-lg-12">
+							<div class="card alert">
+								<div class="card-header">
+									<h4>请求参数 </h4>
+								</div>
+								<div class="card-body" id="req-params">
+									<table class="table table-responsive table-hover ">
+										<thead>
+											<tr><th>参数</th><th>描述</th><th>数据类型</th><th>必须</th><th>版本</th><th>Mock参数</th></tr>
+										</thead>
+										<tbody><!-- 请求参数 --></tbody>
+									</table>
+								</div>
+							</div>
+							<!-- /# card -->
+						</div>
+						<!-- /# column -->
+						<div class="col-lg-12">
+							<div class="card alert">
+								<div class="card-header">
+									<h4>返回参数</h4>
+								</div>
+								<div class="card-body" id="resp-params">
+									<table class="table table-responsive table-hover ">
+										<thead>
+											<tr><th>参数</th><th>描述</th><th>数据类型</th><th>版本</th></tr>
+										</thead>
+										<tbody><!-- 请求参数 --></tbody>
+									</table>
+								</div>
+							</div>
+							<!-- /# card -->
+						</div>
+						<!-- /# column -->
+
+
+					</div>
+
+				</div>
+				<!-- /# main content -->
+				<span > Interface Document - Developed by Sandy,  Page frame comes from 
+				<a target="_blank" href="http://demo.cssmoban.com/cssthemes6/fish_34_vuejsadmin_simdash/index.html"><b>SimDash</b></a> </span>
+			</div>
+			<!-- /# container-fluid -->
+		</div>
+		<!-- /# main -->
+	</div>
+	
+	<!-- Large modal -->
+<!-- <button type="button" class="btn btn-primary" >Large modal</button> -->
+
+<div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" id="modal-response">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+       <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">请求结果</h4>
+      </div>
+      <div class="modal-body">
+       	<textarea rows="27" cols="" id="response-context"   style="width: 100%; ">
+       	</textarea>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" id="btn-resp-copy">复制</button>
+      </div>
+    </div>
+  </div>
+</div>
+	
+	<!-- /# content wrap -->
+
+	<script src="assets/js/lib/jquery.min.js"></script>
+	<script src="assets/js/lib/jquery.cookie.js"></script>
+	
+	<!-- jquery vendor -->
+	<script src="assets/js/lib/jquery.nanoscroller.min.js"></script>
+	<!-- nano scroller     -->
+	<script src="assets/js/lib/sidebar.js"></script>
+	<!-- sidebar -->
+	<script src="assets/js/lib/bootstrap.min.js"></script>
+	<!-- bootstrap -->
+  	<script src="assets/js/lib/mmc-common.js"></script>
+	<script src="assets/js/lib/toastr/toastr.min.js"></script><!-- scripit init-->
+    <script src="assets/js/lib/toastr/toastr.init.js"></script><!-- scripit init-->	
+	<script src="assets/js/url_util.js?t=1231"></script>
+	<script src="assets/js/ido.js?t=1231"></script>
+	<script src="assets/js/scripts.js"></script>
+	<!-- scripit init-->
+	<script>
+	
+	var DATA = null;
+	var  ACTIVE_SERVICE = null;
+	$(function() {
+		console.log("=========>")
+		   
+		Ido.init();
+		Mock.init();
+	});
+	
+	</script>
+	
+</body>
+</html>
