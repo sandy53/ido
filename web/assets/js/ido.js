@@ -154,6 +154,7 @@ var Ido = {
 			$("#api-name").html(name+"&nbsp;");
 			$("#api-method").text(item.methods ? item.methods : "GET|POST" );
 			$("#api-path").text(item.patterns);
+			$("#api-remark").html(item.remarks);
 			
 			$(".api-item").removeClass("active");
 			$("#api-item-"+apiCode).addClass("active");
